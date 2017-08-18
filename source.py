@@ -1,14 +1,16 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from flask import *
 import os
 import hashlib
 
 app = Flask(__name__)
 
-app.secret_key = '##################'   #secret key
+app.secret_key = 'QB#SFFDFFO49u093wepve#)R32rj'
 
 def check_is_flag(data):
     data = hashlib.sha256(data).hexdigest()
-
+    
     if data == "c3065ded789a1f36072cd8d03b2c4626e3835419971078108e1f138396432d82":
         return 1
     return 0
@@ -20,7 +22,7 @@ def main():
     lists = os.listdir('./files')
     return render_template('main.html', files=lists)
 
-@app.route('/open_file', methods = ['GET'])
+@app.route('/readFile', methods = ['GET'])
 def openFile():
     fileName = request.args.get('fileName')
 
