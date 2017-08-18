@@ -6,11 +6,11 @@ import hashlib
 
 app = Flask(__name__)
 
-app.secret_key = 'QB#SFFDFFO49u093wepve#)R32rj'
+app.secret_key = '#############################'
 
 def check_is_flag(data):
     data = hashlib.sha256(data).hexdigest()
-    
+
     if data == "c3065ded789a1f36072cd8d03b2c4626e3835419971078108e1f138396432d82":
         return 1
     return 0
