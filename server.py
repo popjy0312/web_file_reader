@@ -26,6 +26,11 @@ def main():
 def openFile():
     fileName = request.args.get('fileName')
 
+    #filter
+    if fileName not in os.listdir('./files'):
+        session.clear()
+        return "file open fail"
+
     if session.get('fileFlag') == True:
         session.pop('fileData', None)
     session['fileFlag'] = True
